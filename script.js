@@ -18,17 +18,21 @@ function logQuote(data){
             var n = Math.floor((Math.random()*collectLength)+1);
             return collect[n];
         };
-        var author = data.quoteAuthor;
-        var quote = data.quoteText;
-        console.log("author: "+author+"; "+"quote: "+quote);
+    var author = data.quoteAuthor;
+    var quote = data.quoteText;
+    console.log("author: "+author+"; "+"quote: "+quote);
+    if($quote.innerHTML == ""){
         $quote.innerHTML = "❝"+quote;
-        var color = randomColor();
-        $quote.style.color = color;
-        $author.innerHTML = "-"+author;
-        $author.style.color = color;
-        $body.style.backgroundColor = color;
-        $btns[0].style.backgroundColor = color;
-        $btns[1].style.backgroundColor = color;
+    }else{
+        fadeOutIn($quote,quote);
+    }
+    var color = randomColor();
+    $quote.style.color = color;
+    $author.innerHTML = "-"+author;
+    $author.style.color = color;
+    $body.style.backgroundColor = color;
+    $btns[0].style.backgroundColor = color;
+    $btns[1].style.backgroundColor = color;
 }
 var $head = document.getElementsByTagName('head')[0];
 var script = document.createElement("script");
@@ -42,7 +46,6 @@ var $btns = document.getElementsByClassName("app__btn");
 var $body = document.body;
 
 function quoteBtnFunction(){
-    $quote.classList.add("animate");
     var script = document.createElement("script");
     script.src = "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=logQuote";
     $head.appendChild(script);
