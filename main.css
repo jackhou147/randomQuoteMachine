@@ -9,7 +9,7 @@ html {
 body {
     height: 100%;
     margin: 0;
-    border: 3px dashed black;
+    /*border: 3px dashed black;*/
     background-color: #BDBB99;
 }
 
@@ -19,7 +19,7 @@ body {
     position: relative;
     top: -10%;
     margin-top: 15px;
-    border: 1px dashed red;
+    /*border: 1px dashed red;*/
 }
 
 body,
@@ -62,7 +62,7 @@ body,
 .app__btns {
     width: 95%;
     margin-top: 2%;
-    border: 1px dashed black;
+    /*border: 1px dashed black;*/
 }
 
 /**********app__main********************/
@@ -73,7 +73,7 @@ body,
 .app__quote,
 .app__author {
     width: 95%;
-    border: 1px dashed red;
+    /*border: 1px dashed red;*/
     margin-top: 2%;
 }
 
@@ -85,6 +85,7 @@ body,
     text-align: center;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .app__author {
@@ -108,6 +109,16 @@ body,
     position: relative;
     cursor: pointer;
     border-radius: 3px;
+}
+
+.retweet-btn:active,
+.new-quote-btn:active {
+    transform: translateY(4px);
+}
+
+.retweet-btn:hover,
+.new-quote-btn:hover {
+    opacity: 0.9;
 }
 
 .new-quote-btn {
@@ -137,6 +148,11 @@ body,
 /**********author*******************************/
 .author {
     text-align: center;
+}
+
+.author a{
+    text-decoration: underline;
+    color: white;
 }
 
 /**********media queries*************************/
@@ -169,3 +185,4 @@ body,
         height: 308px;
     }
 }
+

@@ -30,4 +30,11 @@ function fadeOutIn(el,str2){
     };
     fadeOut(el);
     /*el.innerHTML = str2;*/
-}
+};
+function randomColor(){
+    var red = Math.floor(Math.random()*256),
+        green = Math.floor(Math.random()*256),
+        blue = Math.floor(Math.random()*256);
+    var color = "rgb("+red+","+green+","+blue+")";
+    return color;
+};
