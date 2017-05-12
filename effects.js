@@ -1,11 +1,11 @@
 function fadeOutIn(el,str2){
     function fadeOut(el){
+        clearInterval(outInterval);
         if(!el.style.opacity){
             el.style.opacity = 1;
         }
-        clearInterval(outInterval);
         var outInterval = setInterval(function(){
-            if(el.style.opacity <= 0){
+            if(Number(el.style.opacity).toFixed(1)<= 0.1){
                 clearInterval(outInterval);
                 el.innerHTML = str2;
                 fadeIn(el);
@@ -16,12 +16,9 @@ function fadeOutIn(el,str2){
         
     };
     function fadeIn(el){
-        if(!el.style.opacity){
-            el.style.opacity = 0;
-        }
         clearInterval(inInterval);
         var inInterval = setInterval(function(){
-            if(el.style.opacity >= 1){
+            if(Number(el.style.opacity).toFixed(1)>= 1){
                 clearInterval(inInterval);
             }else {
                 el.style.opacity = Number(el.style.opacity) + 0.1
@@ -29,7 +26,6 @@ function fadeOutIn(el,str2){
         },40)
     };
     fadeOut(el);
-    /*el.innerHTML = str2;*/
 };
 function randomColor(){
     var red = Math.floor(Math.random()*256),
